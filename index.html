@@ -4,478 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>Нанесение для экипировки — прототип панели</title>
-  <style>
-    /* Сброс и базовые стили */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    body {
-      background-color: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-
-    /* Имитация карточки товара */
-    .product-card {
-      max-width: 800px;
-      width: 100%;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      padding: 32px;
-      position: relative;
-    }
-
-    .product-title {
-      font-size: 24px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .product-price {
-      font-size: 28px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 24px;
-    }
-
-    /* Кнопка открытия панели */
-    .btn-open-panel {
-      background: transparent;
-      border: 1.5px solid #1a1a1a;
-      color: #1a1a1a;
-      font-size: 16px;
-      font-weight: 500;
-      padding: 12px 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-open-panel:hover {
-      background: #f0f0f0;
-    }
-
-    /* Затемнение и панель — демонстрация прямо на странице */
-    .demo-container {
-      margin-top: 40px;
-      border-top: 1px solid #e0e0e0;
-      padding-top: 30px;
-    }
-
-    .demo-label {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      margin-bottom: 20px;
-    }
-
-    /* Сама панель (активное состояние) */
-    .drawer-panel {
-      width: 500px;
-      max-width: 100%;
-      background: white;
-      border-radius: 16px 0 0 16px;
-      box-shadow: -4px 0 20px rgba(0,0,0,0.15);
-      padding: 28px 24px;
-      position: relative;
-      border: 1px solid #eaeaea;
-      margin-bottom: 30px;
-    }
-
-    /* Заголовок и крестик */
-    .drawer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .drawer-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: #000;
-    }
-
-    .drawer-close {
-      font-size: 24px;
-      line-height: 1;
-      cursor: pointer;
-      color: #666;
-      transition: color 0.2s;
-    }
-
-    .drawer-close:hover {
-      color: #000;
-    }
-
-    /* Информационный блок — чёрный текст на белом */
-    .info-block {
-      background: white;
-      border: 1px solid #eaeaea;
-      border-radius: 12px;
-      padding: 16px 18px;
-      margin-bottom: 28px;
-      color: #000;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .info-block p {
-      margin-bottom: 8px;
-    }
-
-    .info-block ul {
-      list-style: none;
-      margin: 8px 0 12px 0;
-    }
-
-    .info-block li {
-      padding-left: 20px;
-      position: relative;
-      margin-bottom: 4px;
-    }
-
-    .info-block li:before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: #000;
-    }
-
-    .info-block a {
-      color: #0066cc;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .info-block a:hover {
-      text-decoration: underline;
-    }
-
-    .info-note {
-      font-style: italic;
-      color: #555;
-      margin-top: 8px;
-      font-size: 13px;
-    }
-
-    /* Секции */
-    .section {
-      margin-bottom: 28px;
-    }
-
-    .section-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: #000;
-    }
-
-    /* Цвета — радиокнопки */
-    .color-palette {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .color-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .color-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      transition: 0.1s;
-    }
-
-    .color-circle.selected {
-      border: 2px solid #000;
-      box-shadow: 0 0 0 2px white, 0 0 0 4px black;
-    }
-
-    .color-label {
-      font-size: 11px;
-      color: #333;
-    }
-
-    /* Логотип */
-    .file-upload-area {
-      margin-top: 8px;
-    }
-
-    .btn-file {
-      background: #f5f5f5;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 12px 18px;
-      font-size: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: 0.2s;
-      color: #1a1a1a;
-    }
-
-    .btn-file:hover {
-      background: #ebebeb;
-    }
-
-    .file-attached {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #f9f9f9;
-      padding: 10px 16px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-    }
-
-    .file-name {
-      font-size: 14px;
-      color: #1a1a1a;
-      word-break: break-word;
-    }
-
-    .file-remove {
-      color: #666;
-      font-size: 18px;
-      cursor: pointer;
-      margin-left: auto;
-    }
-
-    .file-remove:hover {
-      color: #d32f2f;
-    }
-
-    /* Игроки */
-    .player-card {
-      border: 1px solid #eaeaea;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
-      background: #fafafa;
-    }
-
-    .player-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .player-name {
-      font-weight: 600;
-      font-size: 16px;
-      color: #000;
-    }
-
-    .player-delete {
-      color: #ccc;
-      cursor: not-allowed;
-      font-size: 18px;
-      transition: 0.2s;
-    }
-
-    .player-delete.active {
-      color: #8e8e8e;
-      cursor: pointer;
-    }
-
-    .player-delete.active:hover {
-      color: #d32f2f;
-    }
-
-    .player-fields {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .field-group {
-      flex: 1 1 160px;
-      min-width: 140px;
-    }
-
-    .field-label {
-      font-size: 12px;
-      color: #666;
-      margin-bottom: 4px;
-      display: block;
-    }
-
-    .field-input {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-
-    .field-input:focus {
-      border-color: #000;
-      outline: none;
-    }
-
-    .field-input.error {
-      border-color: #d32f2f;
-      background: #fff8f8;
-    }
-
-    /* Подсказка для цифровых полей */
-    .input-hint {
-      font-size: 11px;
-      color: #888;
-      margin-top: 4px;
-    }
-
-    /* Кнопка добавления игрока — под кнопкой в корзину */
-    .add-player-wrapper {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 8px;
-      margin-bottom: 20px;
-    }
-
-    .btn-add-player {
-      background: transparent;
-      border: none;
-      color: #0066cc;
-      font-weight: 500;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      padding: 8px 12px;
-    }
-
-    .btn-add-player:hover {
-      color: #004999;
-    }
-
-    /* Счётчик игроков */
-    .player-counter {
-      font-size: 14px;
-      color: #333;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-
-    /* Итого */
-    .total-price {
-      font-size: 24px;
-      font-weight: 700;
-      margin: 20px 0 16px 0;
-      color: #000;
-      border-top: 1px solid #eaeaea;
-      padding-top: 20px;
-    }
-
-    /* Кнопка в корзину */
-    .btn-cart {
-      width: 100%;
-      background: #1a1a1a;
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 16px 24px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn-cart:hover:not(:disabled) {
-      background: #333;
-    }
-
-    .btn-cart:disabled {
-      background: #cccccc;
-      cursor: not-allowed;
-    }
-
-    /* Дисклеймер */
-    .disclaimer {
-      font-size: 12px;
-      color: #777;
-      margin-top: 16px;
-      text-align: center;
-    }
-
-    /* Состояние пустой панели — для демонстрации неактивной кнопки */
-    .state-hint {
-      background: #f0f7ff;
-      border-left: 4px solid #0066cc;
-      padding: 12px 16px;
-      font-size: 13px;
-      margin-bottom: 24px;
-      border-radius: 4px;
-    }
-
-    hr {
-      margin: 30px 0;
-      border: none;
-      border-top: 1px dashed #ccc;
-    }
-
-    /* Адаптивность */
-    @media (max-width: 600px) {
-      .drawer-panel {
-        width: 100%;
-        border-radius: 0;
-      }
-      .player-fields {
-        flex-direction: column;
-        gap: 12px;
-      }
-      .field-group {
-        width: 100%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="product-card">
+    <!-- Имитация карточки товара -->
     <div class="product-title">Футболка домашняя 2024/25</div>
     <div class="product-price">3 490 ₽</div>
-    
+
     <button class="btn-open-panel">
       <span>+</span> Добавить нанесение для экипировки
     </button>
 
     <div class="demo-container">
       <div class="demo-label">⚡ Демонстрация панели (активное состояние)</div>
-      
-      <!-- ВЫДВИЖНАЯ ПАНЕЛЬ - ПОЛНОСТЬЮ В СООТВЕТСТВИИ С ТЗ -->
+
+      <!-- ===== ВЫДВИЖНАЯ ПАНЕЛЬ ===== -->
       <div class="drawer-panel">
-        
+
         <!-- Шапка -->
         <div class="drawer-header">
           <span class="drawer-title">Нанесение для экипировки</span>
           <span class="drawer-close">✕</span>
         </div>
 
-        <!-- Информационный блок (чёрный на белом) -->
+        <!-- Информационный блок -->
         <div class="info-block">
           <p><strong>В этом разделе вы можете добавить нанесение на экипировку для игрока или команды.</strong></p>
           <p><strong>Доступные возможности:</strong></p>
@@ -489,7 +42,7 @@
           <p>Больше вариантов персонализации вы найдёте в разделе <a href="#">«Нанесение и вышивка»</a>.</p>
         </div>
 
-        <!-- Цвет нанесения - фиксированная палитра -->
+        <!-- Цвет нанесения -->
         <div class="section">
           <div class="section-title">Цвет нанесения</div>
           <div class="color-palette">
@@ -528,76 +81,64 @@
         <div class="section">
           <div class="section-title">Логотип команды</div>
           <div class="file-upload-area">
-            <!-- Состояние: файл прикреплён (для демонстрации) -->
+            <!-- Состояние: файл прикреплён -->
             <div class="file-attached">
               <span style="font-size: 18px;">📎</span>
               <span class="file-name">team_logo_arsenal.svg</span>
               <span class="file-remove">✕</span>
             </div>
-            <!-- Альтернатива: пустое состояние (раскомментировать для теста) -->
-            <!-- <button class="btn-file">
-              <span>📎</span> Прикрепить логотип
-            </button> -->
           </div>
         </div>
 
-        <!-- Блок игроков -->
-        <div class="section">
-          <div class="section-title">Игроки</div>
-          
-          <!-- Игрок 1 -->
-          <div class="player-card">
-            <div class="player-header">
-              <span class="player-name">Игрок 1</span>
-              <span class="player-delete" title="Удалить нельзя (минимум 1 игрок)">🗑️</span>
+        <!-- Игрок 1 -->
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Игрок 1</span>
+            <span class="player-delete" title="Удалить нельзя (минимум 1 игрок)">🗑️</span>
+          </div>
+          <div class="player-fields">
+            <div class="field-group">
+              <label class="field-label">Фамилия/команда</label>
+              <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Иванов">
             </div>
-            <div class="player-fields">
-              <div class="field-group">
-                <label class="field-label">Фамилия/команда</label>
-                <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Иванов">
-              </div>
-              <div class="field-group">
-                <label class="field-label">Большой номер</label>
-                <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="10">
-                <div class="input-hint">только цифры</div>
-              </div>
-              <div class="field-group">
-                <label class="field-label">Малый номер</label>
-                <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="7">
-                <div class="input-hint">только цифры</div>
-              </div>
+            <div class="field-group">
+              <label class="field-label">Большой номер</label>
+              <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="10">
+              <div class="input-hint">только цифры</div>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Малый номер</label>
+              <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="7">
+              <div class="input-hint">только цифры</div>
             </div>
           </div>
+        </div>
 
-          <!-- Игрок 2 (добавлен, чтобы показать активную иконку удаления) -->
-          <div class="player-card">
-            <div class="player-header">
-              <span class="player-name">Игрок 2</span>
-              <span class="player-delete active" title="Удалить игрока">🗑️</span>
+        <!-- Игрок 2 -->
+        <div class="player-card">
+          <div class="player-header">
+            <span class="player-name">Игрок 2</span>
+            <span class="player-delete active" title="Удалить игрока">🗑️</span>
+          </div>
+          <div class="player-fields">
+            <div class="field-group">
+              <label class="field-label">Фамилия/команда</label>
+              <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Петров">
             </div>
-            <div class="player-fields">
-              <div class="field-group">
-                <label class="field-label">Фамилия/команда</label>
-                <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Петров">
-              </div>
-              <div class="field-group">
-                <label class="field-label">Большой номер</label>
-                <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="9">
-              </div>
-              <div class="field-group">
-                <label class="field-label">Малый номер</label>
-                <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="">
-              </div>
+            <div class="field-group">
+              <label class="field-label">Большой номер</label>
+              <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="9">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Малый номер</label>
+              <input class="field-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="">
             </div>
           </div>
+        </div>
 
-          <!-- Счётчик игроков -->
-          <div class="player-counter">
-            Кол-во игроков: 2
-          </div>
-
-          <!-- Кнопка добавления игрока (РАСПОЛОЖЕНА ПОД КНОПКОЙ В КОРЗИНУ, но в прототипе показываем логику) -->
-          <!-- В реальности она будет после кнопки "Добавить в корзину", здесь размещаем для наглядности чуть выше -->
+        <!-- Счётчик игроков -->
+        <div class="player-counter">
+          Кол-во игроков: 2
         </div>
 
         <!-- Итоговая цена -->
@@ -605,7 +146,7 @@
           Итого: 2 900 ₽
         </div>
 
-        <!-- Кнопка добавления в корзину -->
+        <!-- Кнопка в корзину -->
         <button class="btn-cart">Добавить в корзину</button>
 
         <!-- Дисклеймер -->
@@ -613,7 +154,7 @@
           * Нажимая «Добавить в корзину», вы подтверждаете, что товары с нанесением будут добавлены в корзину с указанными параметрами.
         </div>
 
-        <!-- Кнопка "+ Добавить игрока" - строго под кнопкой "Добавить в корзину" (согласно ТЗ) -->
+        <!-- Кнопка добавления игрока (СТРОГО ПОД КНОПКОЙ В КОРЗИНУ) -->
         <div class="add-player-wrapper">
           <button class="btn-add-player">
             <span style="font-size: 18px;">+</span> Добавить игрока
@@ -622,16 +163,16 @@
 
       </div> <!-- Конец панели -->
 
-      <!-- Дополнительная демонстрация: состояние неактивной кнопки (всё пусто) -->
+      <!-- ===== ДЕМОНСТРАЦИЯ НЕАКТИВНОГО СОСТОЯНИЯ ===== -->
       <hr>
       <div class="demo-label">📌 Демонстрация состояния «Неактивная кнопка» (все поля пусты)</div>
-      
+
       <div class="drawer-panel" style="opacity: 0.95;">
         <div class="drawer-header">
           <span class="drawer-title">Нанесение для экипировки</span>
           <span class="drawer-close">✕</span>
         </div>
-        
+
         <div class="info-block" style="margin-bottom: 16px;">
           <p><strong>Доступные возможности:</strong> большой номер, малый номер, логотип, фамилия...</p>
         </div>
@@ -643,7 +184,7 @@
               <div class="color-circle selected" style="background: #ffffff; border: 1px solid #ccc;"></div>
               <span class="color-label">Белый</span>
             </div>
-            <!-- Остальные цвета сокращены для краткости -->
+            <!-- Остальные цвета для краткости опущены, в реальном проекте все 7 цветов -->
           </div>
         </div>
 
@@ -679,8 +220,8 @@
 
         <div class="player-counter">Кол-во игроков: 1</div>
         <div class="total-price">Итого: 0 ₽</div>
-        
-        <!-- Кнопка неактивна (disabled) -->
+
+        <!-- Кнопка НЕАКТИВНА -->
         <button class="btn-cart" disabled>Добавить в корзину</button>
         <div class="disclaimer">* Нажимая «Добавить в корзину»...</div>
         <div class="add-player-wrapper">
@@ -692,15 +233,17 @@
   </div> <!-- product-card -->
 
   <script>
-    // Минимальный JS для демонстрации интерактивности (переключение цвета, удаление и т.д.)
-    // В реальном проекте логика будет полноценной, здесь — только для прототипа.
+    // Минимальная интерактивность для демонстрации
     document.addEventListener('DOMContentLoaded', function() {
       // Переключение цветов
       const colorCircles = document.querySelectorAll('.color-circle');
       colorCircles.forEach(circle => {
         circle.addEventListener('click', function(e) {
-          colorCircles.forEach(c => c.classList.remove('selected'));
-          this.classList.add('selected');
+          const parent = this.closest('.color-palette');
+          if (parent) {
+            parent.querySelectorAll('.color-circle').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+          }
         });
       });
 
@@ -709,7 +252,9 @@
       if (fileRemove) {
         fileRemove.addEventListener('click', function() {
           const fileArea = document.querySelector('.file-upload-area');
-          fileArea.innerHTML = `<button class="btn-file"><span>📎</span> Прикрепить логотип</button>`;
+          if (fileArea) {
+            fileArea.innerHTML = `<button class="btn-file"><span>📎</span> Прикрепить логотип</button>`;
+          }
         });
       }
 
@@ -720,7 +265,6 @@
           const playerCard = this.closest('.player-card');
           if (playerCard) {
             playerCard.remove();
-            // Обновить счётчик игроков (упрощённо)
             const counter = document.querySelector('.player-counter');
             const players = document.querySelectorAll('.player-card');
             if (counter) counter.textContent = `Кол-во игроков: ${players.length}`;
@@ -728,15 +272,15 @@
         });
       });
 
-      // Добавление игрока (симуляция)
+      // Кнопка добавления игрока (симуляция)
       const addButtons = document.querySelectorAll('.btn-add-player');
       addButtons.forEach(btn => {
         btn.addEventListener('click', function() {
-          alert('В реальном интерфейсе здесь добавится новый игрок. Для прототипа — просто демонстрация.');
+          alert('Добавление нового игрока. В реальном проекте здесь появится новая строка.');
         });
       });
 
-      // Валидация цифр (упрощённо)
+      // Валидация цифр
       const numberInputs = document.querySelectorAll('input[pattern="\\d*"]');
       numberInputs.forEach(input => {
         input.addEventListener('input', function() {

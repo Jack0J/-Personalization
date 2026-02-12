@@ -1,0 +1,457 @@
+/* ===== СБРОС И БАЗОВЫЕ СТИЛИ ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* ===== КАРТОЧКА ТОВАРА ===== */
+.product-card {
+  max-width: 800px;
+  width: 100%;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+  position: relative;
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.product-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+}
+
+/* ===== КНОПКА ОТКРЫТИЯ ПАНЕЛИ ===== */
+.btn-open-panel {
+  background: transparent;
+  border: 1.5px solid #1a1a1a;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-open-panel:hover {
+  background: #f0f0f0;
+}
+
+/* ===== ДЕМО-КОНТЕЙНЕР ===== */
+.demo-container {
+  margin-top: 40px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 30px;
+}
+
+.demo-label {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* ===== ВЫДВИЖНАЯ ПАНЕЛЬ ===== */
+.drawer-panel {
+  width: 500px;
+  max-width: 100%;
+  background: white;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  padding: 28px 24px;
+  position: relative;
+  border: 1px solid #eaeaea;
+  margin-bottom: 30px;
+}
+
+/* ===== ШАПКА ПАНЕЛИ ===== */
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.drawer-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
+.drawer-close {
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s;
+}
+
+.drawer-close:hover {
+  color: #000;
+}
+
+/* ===== ИНФОРМАЦИОННЫЙ БЛОК ===== */
+.info-block {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 28px;
+  color: #000;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.info-block p {
+  margin-bottom: 8px;
+}
+
+.info-block ul {
+  list-style: none;
+  margin: 8px 0 12px 0;
+}
+
+.info-block li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.info-block li:before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #000;
+}
+
+.info-block a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.info-block a:hover {
+  text-decoration: underline;
+}
+
+.info-note {
+  font-style: italic;
+  color: #555;
+  margin-top: 8px;
+  font-size: 13px;
+}
+
+/* ===== СЕКЦИИ ===== */
+.section {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+/* ===== ЦВЕТОВАЯ ПАЛИТРА ===== */
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.color-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.color-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: 0.1s;
+}
+
+.color-circle.selected {
+  border: 2px solid #000;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
+
+.color-label {
+  font-size: 11px;
+  color: #333;
+}
+
+/* ===== ЗАГРУЗКА ЛОГОТИПА ===== */
+.file-upload-area {
+  margin-top: 8px;
+}
+
+.btn-file {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #1a1a1a;
+}
+
+.btn-file:hover {
+  background: #ebebeb;
+}
+
+.file-attached {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f9f9f9;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.file-name {
+  font-size: 14px;
+  color: #1a1a1a;
+  word-break: break-word;
+}
+
+.file-remove {
+  color: #666;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.file-remove:hover {
+  color: #d32f2f;
+}
+
+/* ===== КАРТОЧКА ИГРОКА ===== */
+.player-card {
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: #fafafa;
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.player-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #000;
+}
+
+.player-delete {
+  color: #ccc;
+  cursor: not-allowed;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.player-delete.active {
+  color: #8e8e8e;
+  cursor: pointer;
+}
+
+.player-delete.active:hover {
+  color: #d32f2f;
+}
+
+/* ===== ПОЛЯ ВВОДА ===== */
+.player-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.field-group {
+  flex: 1 1 160px;
+  min-width: 140px;
+}
+
+.field-label {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.field-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.field-input:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.field-input.error {
+  border-color: #d32f2f;
+  background: #fff8f8;
+}
+
+.input-hint {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ===== КНОПКА ДОБАВЛЕНИЯ ИГРОКА ===== */
+.add-player-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.btn-add-player {
+  background: transparent;
+  border: none;
+  color: #0066cc;
+  font-weight: 500;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+.btn-add-player:hover {
+  color: #004999;
+}
+
+/* ===== СЧЁТЧИК ИГРОКОВ ===== */
+.player-counter {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+/* ===== ИТОГОВАЯ ЦЕНА ===== */
+.total-price {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 20px 0 16px 0;
+  color: #000;
+  border-top: 1px solid #eaeaea;
+  padding-top: 20px;
+}
+
+/* ===== КНОПКА В КОРЗИНУ ===== */
+.btn-cart {
+  width: 100%;
+  background: #1a1a1a;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cart:hover:not(:disabled) {
+  background: #333;
+}
+
+.btn-cart:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+/* ===== ДИСКЛЕЙМЕР ===== */
+.disclaimer {
+  font-size: 12px;
+  color: #777;
+  margin-top: 16px;
+  text-align: center;
+}
+
+/* ===== ВСПОМОГАТЕЛЬНЫЕ ЭЛЕМЕНТЫ ===== */
+.state-hint {
+  background: #f0f7ff;
+  border-left: 4px solid #0066cc;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin-bottom: 24px;
+  border-radius: 4px;
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px dashed #ccc;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 600px) {
+  .drawer-panel {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .player-fields {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .field-group {
+    width: 100%;
+  }
+
+  body {
+    padding: 20px 10px;
+  }
+
+  .product-card {
+    padding: 20px;
+  }
+}
