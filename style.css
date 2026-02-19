@@ -822,14 +822,14 @@ body {
 
 #totalPriceValue {
     font-size: 22px;
-    font-weight: 600; /* УМЕНЬШЕНО С 800 */
+    font-weight: 600;
     color: #000;
 }
 
 /* ===== КНОПКА В КОРЗИНУ (ЧЕРНАЯ) ===== */
 .btn-cart {
     width: 100%;
-    background: #1a1a1a; /* ЧЕРНЫЙ */
+    background: #1a1a1a;
     color: white;
     font-size: 15px;
     font-weight: 600;
