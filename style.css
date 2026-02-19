@@ -1,633 +1,739 @@
 /* ===== СБРОС И БАЗОВЫЕ СТИЛИ ===== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-  padding: 30px 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
 }
 
 /* ===== СТРАНИЦА ТОВАРА ===== */
 .product-page {
-  max-width: 1400px;
-  width: 100%;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-  padding: 30px;
+    max-width: 1400px;
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    padding: 30px;
 }
 
 .breadcrumbs {
-  display: flex;
-  gap: 8px;
-  font-size: 13px;
-  color: #666;
-  margin-bottom: 25px;
+    display: flex;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 25px;
 }
 
 .breadcrumbs a {
-  color: #0066a1;
-  text-decoration: none;
+    color: #0066a1;
+    text-decoration: none;
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
 .product-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .main-image {
-  background: #f8f8f8;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  border: 1px solid #eee;
+    background: #f8f8f8;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid #eee;
 }
 
 .main-image img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .thumbnail-list {
-  display: flex;
-  gap: 10px;
+    display: flex;
+    gap: 10px;
 }
 
 .thumbnail {
-  width: 80px;
-  height: 80px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 5px;
-  background: white;
-  cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    background: white;
+    cursor: pointer;
 }
 
 .thumbnail.active {
-  border-color: #0066a1;
+    border-color: #0066a1;
 }
 
 .product-info h1 {
-  font-size: 28px;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 15px;
 }
 
 .product-sku {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 15px;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 15px;
 }
 
 .product-price {
-  font-size: 32px;
-  font-weight: 700;
-  color: #d32f2f;
-  margin-bottom: 25px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #d32f2f;
+    margin-bottom: 25px;
 }
 
 /* ===== БЛОК РАЗМЕРА ===== */
 .size-selector {
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 25px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
 }
 
 .size-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .size-title {
-  font-weight: 600;
-  font-size: 16px;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .size-table-link {
-  color: #0066a1;
-  font-size: 14px;
-  text-decoration: none;
+    color: #0066a1;
+    font-size: 14px;
+    text-decoration: none;
 }
 
 .size-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .size-btn {
-  min-width: 60px;
-  padding: 10px 16px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
+    min-width: 60px;
+    padding: 10px 16px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .size-btn:hover {
-  border-color: #0066a1;
+    border-color: #0066a1;
 }
 
 .size-btn.selected {
-  background: #0066a1;
-  color: white;
-  border-color: #0066a1;
+    background: #0066a1;
+    color: white;
+    border-color: #0066a1;
 }
 
-/* ===== КНОПКА ОТКРЫТИЯ ПАНЕЛИ ===== */
+/* ===== НОВЫЙ БЛОК: ТЕКСТ + КНОПКА В РАМКЕ ===== */
+.panel-trigger-wrapper {
+    border: 0.5px solid #000;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    background: white;
+}
+
+.panel-trigger-text {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
 .btn-open-panel {
-  width: 100%;
-  background: #1a1a1a;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 16px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+    width: 100%;
+    background: #1a1a1a;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn-open-panel:hover {
-  background: #333;
+    background: #333;
 }
 
 /* ===== ВЫДВИЖНАЯ ПАНЕЛЬ ===== */
 .drawer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999;
 }
 
 .drawer-overlay.active {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 .drawer-panel {
-  position: fixed;
-  top: 0;
-  right: -500px;
-  width: 500px;
-  max-width: 100%;
-  height: 100vh;
-  background: white;
-  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);
-  transition: right 0.3s ease;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+    position: fixed;
+    top: 0;
+    right: -500px;
+    width: 500px;
+    max-width: 100%;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);
+    transition: right 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
 }
 
 .drawer-panel.open {
-  right: 0;
+    right: 0;
 }
 
 .drawer-content {
-  padding: 28px 24px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.drawer-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
 }
 
 .drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .drawer-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: #000;
+    font-size: 22px;
+    font-weight: 700;
+    color: #000;
 }
 
 .drawer-close {
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
-  color: #666;
-  transition: color 0.2s;
-  background: none;
-  border: none;
-  padding: 0 8px;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    padding: 0 8px;
 }
 
 .drawer-close:hover {
-  color: #000;
+    color: #000;
 }
 
-/* ===== ИНФОРМАЦИОННЫЙ БЛОК - ПЕРЕРАБОТАН ===== */
+/* ===== БЛОК ТОВАРОВ В КОРЗИНЕ (ИКОНКИ) ===== */
+.cart-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    background: white;
+}
+
+.cart-item:hover {
+    border-color: #0066cc;
+    background: #f5f9ff;
+}
+
+.cart-item.selected {
+    border: 2px solid #0066cc;
+    background: #f0f7ff;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f0f0f0;
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.cart-item-art {
+    font-size: 12px;
+    color: #777;
+}
+
+.cart-item-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #0066cc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.cart-item.selected .cart-item-check {
+    opacity: 1;
+}
+
+.cart-items-hint {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+/* ===== ИНФОРМАЦИОННЫЙ БЛОК ===== */
 .info-block {
-  background: white;
-  border: none;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 0 0 20px 0;
-  margin-bottom: 28px;
-  color: #333;
-  font-size: 14px;
-  line-height: 1.6;
+    background: white;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 0 0 20px 0;
+    margin-bottom: 28px;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .info-block p {
-  margin-bottom: 12px;
-  color: #333;
-  font-weight: 400;
+    margin-bottom: 12px;
+    color: #333;
+    font-weight: 400;
 }
 
 .info-block ul {
-  list-style: disc;
-  margin: 8px 0 16px 20px;
-  padding-left: 0;
-  color: #333;
+    list-style: disc;
+    margin: 8px 0 16px 20px;
+    padding-left: 0;
+    color: #333;
 }
 
 .info-block li {
-  margin-bottom: 6px;
-  padding-left: 0;
-  font-weight: 400;
-}
-
-.info-block li:before {
-  display: none;
+    margin-bottom: 6px;
+    padding-left: 0;
+    font-weight: 400;
 }
 
 .info-block a {
-  color: #0066cc;
-  text-decoration: none;
-  font-weight: 400;
-  border-bottom: 1px solid transparent;
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid transparent;
 }
 
 .info-block a:hover {
-  border-bottom-color: #0066cc;
-}
-
-.info-note {
-  display: none;
+    border-bottom-color: #0066cc;
 }
 
 /* ===== СЕКЦИИ ===== */
 .section {
-  margin-bottom: 28px;
+    margin-bottom: 28px;
 }
 
 .section-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #000;
 }
 
 /* ===== ЦВЕТОВАЯ ПАЛИТРА ===== */
 .color-palette {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .color-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
 }
 
 .color-circle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  transition: 0.15s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  position: relative;
-  background-clip: content-box;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: 0.15s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    position: relative;
+    background-clip: content-box;
 }
 
 .color-circle[style*="background: #ffffff"],
-.color-circle[style*="background:white"],
-.color-circle[style*="background: #fff"] {
-  border: 2px solid #ccc;
+.color-circle[style*="background:white"] {
+    border: 2px solid #ccc;
 }
 
 .color-circle.selected {
-  border: 2px solid #000;
-  box-shadow: 0 0 0 1px white, 0 0 0 2px black;
+    border: 2px solid #000;
+    box-shadow: 0 0 0 1px white, 0 0 0 2px black;
 }
 
 .color-label {
-  font-size: 11px;
-  color: #333;
+    font-size: 11px;
+    color: #333;
 }
 
-/* ===== ЗАГРУЗКА ЛОГОТИПА ===== */
+/* ===== ЗАГРУЗКА ФАЙЛОВ ===== */
 .file-upload-area {
-  margin-top: 8px;
+    margin-top: 8px;
 }
 
 .btn-file {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 12px 18px;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-  color: #1a1a1a;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 18px;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #1a1a1a;
 }
 
 .btn-file:hover {
-  background: #ebebeb;
+    background: #ebebeb;
 }
 
 .file-attached {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #f9f9f9;
-  padding: 12px 18px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f9f9f9;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
 .file-name {
-  font-size: 14px;
-  color: #1a1a1a;
-  word-break: break-word;
-  font-weight: 500;
+    font-size: 14px;
+    color: #1a1a1a;
+    word-break: break-word;
+    font-weight: 500;
 }
 
 .file-remove {
-  color: #666;
-  font-size: 18px;
-  cursor: pointer;
-  margin-left: auto;
-  background: none;
-  border: none;
+    color: #666;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: auto;
+    background: none;
+    border: none;
 }
 
 .file-remove:hover {
-  color: #d32f2f;
+    color: #d32f2f;
 }
 
 /* ===== КАРТОЧКА ИГРОКА ===== */
 .player-card {
-  border: 1px solid #eaeaea;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 16px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
 .player-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
 }
 
 .player-name {
-  font-weight: 700;
-  font-size: 16px;
-  color: #000;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
 }
 
 .player-delete {
-  color: #aaa;
-  cursor: not-allowed;
-  background: none;
-  border: none;
-  padding: 4px;
-  transition: 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    color: #aaa;
+    cursor: not-allowed;
+    background: none;
+    border: none;
+    padding: 4px;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .player-delete.active {
-  color: #666;
-  cursor: pointer;
+    color: #666;
+    cursor: pointer;
 }
 
 .player-delete.active:hover {
-  color: #d32f2f;
+    color: #d32f2f;
 }
 
 .player-delete svg {
-  width: 18px;
-  height: 18px;
-  stroke-width: 1.8;
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.8;
 }
 
 /* ===== ПОЛЯ ВВОДА ===== */
 .player-fields {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
 }
 
 .field-group {
-  flex: 1 1 160px;
-  min-width: 140px;
+    flex: 1 1 160px;
+    min-width: 140px;
 }
 
 .field-label {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 6px;
-  display: block;
-  font-weight: 500;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 500;
 }
 
-.field-input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: 0.2s;
+.field-input,
+.field-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+    background: white;
 }
 
-.field-input:focus {
-  border-color: #0066a1;
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(0,102,161,0.1);
+.field-input:focus,
+.field-select:focus {
+    border-color: #0066a1;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,102,161,0.1);
 }
 
 .field-input.error {
-  border-color: #d32f2f;
-  background: #fff8f8;
+    border-color: #d32f2f;
+    background: #fff8f8;
 }
 
 .input-hint {
-  font-size: 11px;
-  color: #888;
-  margin-top: 4px;
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
 }
 
-/* ===== КНОПКА ДОБАВИТЬ ИГРОКА - ПРОСТОЙ СТИЛЬ ===== */
+/* ===== КНОПКА ДОБАВИТЬ ИГРОКА ===== */
 .add-player-section {
-  margin-top: 8px;
-  margin-bottom: 24px;
-  display: flex;
-  justify-content: flex-end;
-  border-top: 1px dashed #e0e0e0;
-  padding-top: 20px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px dashed #e0e0e0;
+    padding-top: 20px;
 }
 
 .btn-add-player {
-  background: transparent;
-  border: none;
-  color: #0066cc;
-  font-weight: 500;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  padding: 8px 12px;
-  transition: 0.2s;
+    background: transparent;
+    border: none;
+    color: #0066cc;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 8px 12px;
+    transition: 0.2s;
 }
 
 .btn-add-player:hover {
-  color: #004999;
-  background: transparent;
+    color: #004999;
+    background: transparent;
 }
 
 .btn-add-player svg {
-  width: 18px;
-  height: 18px;
+    width: 18px;
+    height: 18px;
 }
 
 /* ===== СЧЁТЧИК ИГРОКОВ ===== */
 .player-counter {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 500;
-  background: #f5f5f5;
-  padding: 8px 16px;
-  border-radius: 20px;
-  display: inline-block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 500;
+    background: #f5f5f5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
 }
 
-/* ===== ИТОГОВАЯ ЦЕНА - ЧЕРНЫЙ ЦВЕТ ===== */
+/* ===== ИТОГОВАЯ ЦЕНА ===== */
 .total-price {
-  font-size: 24px;
-  font-weight: 700;
-  margin: 16px 0 16px 0;
-  color: #000000;
-  border-top: 1px solid #eaeaea;
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 16px 0 16px 0;
+    color: #000000;
+    border-top: 2px solid #eaeaea;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .total-price span:first-child {
-  font-size: 16px;
-  font-weight: 400;
-  color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
 }
 
-/* ===== КНОПКА В КОРЗИНУ - ЧЕРНАЯ, УМЕНЬШЕН ТЕКСТ ===== */
+#totalPriceValue {
+    font-size: 22px;
+    font-weight: 800;
+    color: #000;
+}
+
+/* ===== КНОПКА В КОРЗИНУ ===== */
 .btn-cart {
-  width: 100%;
-  background: #1a1a1a;
-  color: white;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-  letter-spacing: 0.3px;
+    width: 100%;
+    background: #1a1a1a;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    letter-spacing: 0.3px;
 }
 
 .btn-cart:hover:not(:disabled) {
-  background: #333;
+    background: #333;
 }
 
 .btn-cart:disabled {
-  background: #cccccc;
-  cursor: not-allowed;
+    background: #cccccc;
+    cursor: not-allowed;
 }
 
 /* ===== ДИСКЛЕЙМЕР ===== */
 .disclaimer {
-  font-size: 12px;
-  color: #777;
-  margin-top: 16px;
-  text-align: center;
-  line-height: 1.5;
+    font-size: 12px;
+    color: #777;
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.5;
 }
 
 /* ===== АДАПТИВНОСТЬ ===== */
 @media (max-width: 900px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {
-  .drawer-panel {
-    width: 100%;
-    right: -100%;
-  }
-  
-  .player-fields {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .field-group {
-    width: 100%;
-  }
-  
-  .product-page {
-    padding: 15px;
-  }
+    .drawer-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .player-fields {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .field-group {
+        width: 100%;
+    }
+    
+    .product-page {
+        padding: 15px;
+    }
 }

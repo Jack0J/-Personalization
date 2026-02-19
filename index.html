@@ -1,455 +1,600 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Футболка игровая 2K Sport Ultra - 2K Shop</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Feather Icons -->
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Футболка игровая 2K Sport Ultra - 2K Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 </head>
 <body>
-  <div class="product-page">
-    <!-- Хлебные крошки -->
-    <div class="breadcrumbs">
-      <a href="#">Главная</a> <span>/</span>
-      <a href="#">Каталог</a> <span>/</span>
-      <a href="#">Футболки игровые</a> <span>/</span>
-      <span>Футболка игровая 2K Sport Ultra</span>
+    <div class="product-page">
+        <!-- Хлебные крошки -->
+        <div class="breadcrumbs">
+            <a href="#">Главная</a> <span>/</span>
+            <a href="#">Каталог</a> <span>/</span>
+            <a href="#">Футболки игровые</a> <span>/</span>
+            <span>Футболка игровая 2K Sport Ultra</span>
+        </div>
+
+        <!-- Сетка карточки товара -->
+        <div class="product-grid">
+            <!-- Левая колонка: галерея -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="https://via.placeholder.com/500x500/1a2a6a/ffffff?text=2K+Sport+Ultra+Blue" alt="Футболка игровая 2K Sport Ultra синий">
+                </div>
+                <div class="thumbnail-list">
+                    <div class="thumbnail active">
+                        <img src="https://via.placeholder.com/80x80/1a2a6a/ffffff?text=1" alt="Вид 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/80x80/2a3a7a/ffffff?text=2" alt="Вид 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://via.placeholder.com/80x80/3a4a8a/ffffff?text=3" alt="Вид 3">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Правая колонка: информация -->
+            <div class="product-info">
+                <h1>Футболка игровая 2K Sport Ultra, синий цвет</h1>
+                <div class="product-sku">Арт.: 120065 | Цвет: синий/темно-синий</div>
+                <div class="product-price">1 990 ₽</div>
+
+                <!-- Блок выбора размера -->
+                <div class="size-selector">
+                    <div class="size-header">
+                        <span class="size-title">Наличие: выберите размер</span>
+                        <a href="#" class="size-table-link">ТАБЛИЦА РАЗМЕРОВ</a>
+                    </div>
+                    <div class="size-buttons">
+                        <button class="size-btn">XS</button>
+                        <button class="size-btn">S</button>
+                        <button class="size-btn selected">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                        <button class="size-btn">XXL</button>
+                        <button class="size-btn">XXXL</button>
+                    </div>
+                </div>
+
+                <!-- ТЕКСТ ПЕРЕД КНОПКОЙ (обведен рамкой вместе с кнопкой) -->
+                <div class="panel-trigger-wrapper">
+                    <div class="panel-trigger-text">
+                        Выберите размер и добавьте в корзину товары, чтобы добавить нанесение на экипировку.
+                    </div>
+                    <!-- КНОПКА ОТКРЫТИЯ ПАНЕЛИ -->
+                    <button class="btn-open-panel" id="openDrawerBtn">
+                        <span>+</span> Добавить нанесение для экипировки
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== ВЫДВИЖНАЯ ПАНЕЛЬ ===== -->
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <div class="drawer-panel" id="drawerPanel">
+            <div class="drawer-content">
+                <!-- Шапка -->
+                <div class="drawer-header">
+                    <span class="drawer-title">Нанесение для экипировки</span>
+                    <button class="drawer-close" id="closeDrawerBtn">✕</button>
+                </div>
+
+                <!-- Контент -->
+                <div class="drawer-scrollable">
+                    
+                    <!-- ===== БЛОК ТОВАРОВ В КОРЗИНЕ (ИКОНКИ) ===== -->
+                    <div class="section">
+                        <div class="section-title">Товары для нанесения</div>
+                        <div class="cart-items-list" id="cartItemsList">
+                            <!-- Товар 1 (выбран по умолчанию) -->
+                            <div class="cart-item selected" data-art="120050">
+                                <div class="cart-item-image">
+                                    <img src="https://via.placeholder.com/50x50/1a2a6a/ffffff?text=2K" alt="Футболка">
+                                </div>
+                                <div class="cart-item-info">
+                                    <div class="cart-item-name">Футболка игровая 2K Sport Classic III</div>
+                                    <div class="cart-item-art">Арт. 120050</div>
+                                </div>
+                                <div class="cart-item-check">✓</div>
+                            </div>
+                            
+                            <!-- Товар 2 -->
+                            <div class="cart-item" data-art="120222">
+                                <div class="cart-item-image">
+                                    <img src="https://via.placeholder.com/50x50/2a3a7a/ffffff?text=Shorts" alt="Шорты">
+                                </div>
+                                <div class="cart-item-info">
+                                    <div class="cart-item-name">Шорты игровые 2K Sport Classic III</div>
+                                    <div class="cart-item-art">Арт. 120222</div>
+                                </div>
+                                <div class="cart-item-check">✓</div>
+                            </div>
+                        </div>
+                        <div class="cart-items-hint">Выберите товар для настройки нанесения</div>
+                    </div>
+
+                    <!-- ИНФОРМАЦИОННЫЙ БЛОК -->
+                    <div class="info-block">
+                        <p>В этом разделе вы можете добавить нанесение на экипировку для игрока или команды.</p>
+                        <p>Доступные возможности:</p>
+                        <ul>
+                            <li>большой номер — 190 ₽</li>
+                            <li>малый номер — 150 ₽</li>
+                            <li>логотип команды — 320 ₽</li>
+                            <li>логотип спонсорский большой — 590 ₽</li>
+                            <li>фамилия или название команды — 290 ₽</li>
+                        </ul>
+                        <p>Обратите внимание: товары с нанесением не подлежат возврату и требуют предоплаты.</p>
+                        <p>Больше вариантов персонализации вы найдёте в разделе <a href="#">«Нанесение и вышивка»</a>.</p>
+                    </div>
+
+                    <!-- Цвет нанесения -->
+                    <div class="section">
+                        <div class="section-title">Цвет нанесения</div>
+                        <div class="color-palette">
+                            <div class="color-item">
+                                <div class="color-circle selected" style="background: #ffffff; border: 1px solid #ccc;"></div>
+                                <span class="color-label">Белый</span>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-circle" style="background: #1a1a1a;"></div>
+                                <span class="color-label">Чёрный</span>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-circle" style="background: #d32f2f;"></div>
+                                <span class="color-label">Красный</span>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-circle" style="background: #1976d2;"></div>
+                                <span class="color-label">Синий</span>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-circle" style="background: #ffb300;"></div>
+                                <span class="color-label">Жёлтый</span>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-circle" style="background: #388e3c;"></div>
+                                <span class="color-label">Зелёный</span>
+                            </div>
+                            <div class="color-item">
+                                <div class="color-circle" style="background: #f57c00;"></div>
+                                <span class="color-label">Оранжевый</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Логотип команды -->
+                    <div class="section">
+                        <div class="section-title">Логотип команды (320 ₽)</div>
+                        <div class="file-upload-area" id="logoUploadArea">
+                            <button class="btn-file" id="attachLogoBtn">
+                                <span>📎</span> Прикрепить логотип
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Большой спонсорский логотип (НОВЫЙ) -->
+                    <div class="section">
+                        <div class="section-title">Большой спонсорский логотип (590 ₽)</div>
+                        <div class="file-upload-area" id="sponsorLogoUploadArea">
+                            <button class="btn-file" id="attachSponsorLogoBtn">
+                                <span>📎</span> Прикрепить логотип спонсора
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Игроки -->
+                    <div class="section">
+                        <div class="section-title">Игроки</div>
+                        <div id="playersContainer">
+                            <!-- Игрок 1 -->
+                            <div class="player-card" id="player1">
+                                <div class="player-header">
+                                    <span class="player-name">Игрок 1</span>
+                                    <button class="player-delete" disabled>
+                                        <i data-feather="trash-2"></i>
+                                    </button>
+                                </div>
+                                <div class="player-fields">
+                                    <!-- НОВОЕ ПОЛЕ: РАЗМЕР -->
+                                    <div class="field-group">
+                                        <label class="field-label">Размер</label>
+                                        <select class="field-select">
+                                            <option value="">Выберите размер</option>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M" selected>M</option>
+                                            <option value="L">L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="XXXL">XXXL</option>
+                                        </select>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="field-label">Фамилия/команда (290 ₽)</label>
+                                        <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Иванов">
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="field-label">Большой номер (190 ₽)</label>
+                                        <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="10">
+                                        <div class="input-hint">только цифры</div>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="field-label">Малый номер (150 ₽)</label>
+                                        <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="7">
+                                        <div class="input-hint">только цифры</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Игрок 2 -->
+                            <div class="player-card" id="player2">
+                                <div class="player-header">
+                                    <span class="player-name">Игрок 2</span>
+                                    <button class="player-delete active">
+                                        <i data-feather="trash-2"></i>
+                                    </button>
+                                </div>
+                                <div class="player-fields">
+                                    <!-- ПОЛЕ РАЗМЕРА ДЛЯ ИГРОКА 2 -->
+                                    <div class="field-group">
+                                        <label class="field-label">Размер</label>
+                                        <select class="field-select">
+                                            <option value="">Выберите размер</option>
+                                            <option value="XS">XS</option>
+                                            <option value="S">S</option>
+                                            <option value="M">M</option>
+                                            <option value="L" selected>L</option>
+                                            <option value="XL">XL</option>
+                                            <option value="XXL">XXL</option>
+                                            <option value="XXXL">XXXL</option>
+                                        </select>
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="field-label">Фамилия/команда (290 ₽)</label>
+                                        <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Петров">
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="field-label">Большой номер (190 ₽)</label>
+                                        <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="9">
+                                    </div>
+                                    <div class="field-group">
+                                        <label class="field-label">Малый номер (150 ₽)</label>
+                                        <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Счётчик игроков -->
+                        <div class="player-counter" id="playerCounter">
+                            Кол-во игроков: 2
+                        </div>
+                        
+                        <!-- Кнопка добавления игрока -->
+                        <div class="add-player-section">
+                            <button class="btn-add-player" id="addPlayerBtn">
+                                <i data-feather="plus-circle"></i> Добавить игрока
+                            </button>
+                        </div>
+                        
+                        <!-- Итоговая цена -->
+                        <div class="total-price" id="totalPrice">
+                            <span>Итого по всем товарам:</span> <span id="totalPriceValue">2 900 ₽</span>
+                        </div>
+                        
+                        <!-- Кнопка в корзину -->
+                        <button class="btn-cart" id="addToCartBtn">
+                            Добавить в корзину
+                        </button>
+                        
+                        <!-- Дисклеймер -->
+                        <div class="disclaimer">
+                            * Нажимая «Добавить в корзину», вы подтверждаете, что товары с нанесением будут добавлены в корзину с указанными параметрами.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Сетка карточки товара -->
-    <div class="product-grid">
-      <!-- Левая колонка: галерея -->
-      <div class="product-gallery">
-        <div class="main-image">
-          <img src="https://via.placeholder.com/500x500/1a2a6a/ffffff?text=2K+Sport+Ultra+Blue" alt="Футболка игровая 2K Sport Ultra синий">
-        </div>
-        <div class="thumbnail-list">
-          <div class="thumbnail active">
-            <img src="https://via.placeholder.com/80x80/1a2a6a/ffffff?text=1" alt="Вид 1">
-          </div>
-          <div class="thumbnail">
-            <img src="https://via.placeholder.com/80x80/2a3a7a/ffffff?text=2" alt="Вид 2">
-          </div>
-          <div class="thumbnail">
-            <img src="https://via.placeholder.com/80x80/3a4a8a/ffffff?text=3" alt="Вид 3">
-          </div>
-        </div>
-      </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
 
-      <!-- Правая колонка: информация -->
-      <div class="product-info">
-        <h1>Футболка игровая 2K Sport Ultra, синий цвет</h1>
-        <div class="product-sku">Арт.: 120065 | Цвет: синий/темно-синий</div>
-        <div class="product-price">1 990 ₽</div>
-
-        <!-- Блок выбора размера -->
-        <div class="size-selector">
-          <div class="size-header">
-            <span class="size-title">Наличие: выберите размер</span>
-            <a href="#" class="size-table-link">ТАБЛИЦА РАЗМЕРОВ</a>
-          </div>
-          <div class="size-buttons">
-            <button class="size-btn">XS</button>
-            <button class="size-btn">S</button>
-            <button class="size-btn selected">M</button>
-            <button class="size-btn">L</button>
-            <button class="size-btn">XL</button>
-            <button class="size-btn">XXL</button>
-            <button class="size-btn">XXXL</button>
-          </div>
-        </div>
-
-        <!-- КНОПКА ОТКРЫТИЯ ПАНЕЛИ -->
-        <button class="btn-open-panel" id="openDrawerBtn">
-          <span>+</span> Добавить нанесение для экипировки
-        </button>
-      </div>
-    </div>
-
-    <!-- ===== ВЫДВИЖНАЯ ПАНЕЛЬ ===== -->
-    <div class="drawer-overlay" id="drawerOverlay"></div>
-    <div class="drawer-panel" id="drawerPanel">
-      <div class="drawer-content">
-        <!-- Шапка -->
-        <div class="drawer-header">
-          <span class="drawer-title">Нанесение для экипировки</span>
-          <button class="drawer-close" id="closeDrawerBtn">✕</button>
-        </div>
-
-        <!-- Контент -->
-        <div style="flex: 1; overflow-y: auto; padding-right: 4px;">
-          
-          <!-- ===== ИНФОРМАЦИОННЫЙ БЛОК - ПОЛНОСТЬЮ ПЕРЕРАБОТАН ===== -->
-          <div class="info-block">
-            <p>В этом разделе вы можете добавить нанесение на экипировку для игрока или команды.</p>
-            <p>Доступные возможности:</p>
-            <ul>
-              <li>большой номер;</li>
-              <li>малый номер;</li>
-              <li>логотип команды;</li>
-              <li>фамилия или название команды.</li>
-            </ul>
-            <p>Обратите внимание: товары с нанесением не подлежат возврату и требуют предоплаты.</p>
-            <p>Больше вариантов персонализации вы найдёте в разделе <a href="#">«Нанесение и вышивка»</a>.</p>
-          </div>
-
-          <!-- Цвет нанесения -->
-          <div class="section">
-            <div class="section-title">Цвет нанесения</div>
-            <div class="color-palette">
-              <div class="color-item">
-                <div class="color-circle selected" style="background: #ffffff; border: 1px solid #ccc;"></div>
-                <span class="color-label">Белый</span>
-              </div>
-              <div class="color-item">
-                <div class="color-circle" style="background: #1a1a1a;"></div>
-                <span class="color-label">Чёрный</span>
-              </div>
-              <div class="color-item">
-                <div class="color-circle" style="background: #d32f2f;"></div>
-                <span class="color-label">Красный</span>
-              </div>
-              <div class="color-item">
-                <div class="color-circle" style="background: #1976d2;"></div>
-                <span class="color-label">Синий</span>
-              </div>
-              <div class="color-item">
-                <div class="color-circle" style="background: #ffb300;"></div>
-                <span class="color-label">Жёлтый</span>
-              </div>
-              <div class="color-item">
-                <div class="color-circle" style="background: #388e3c;"></div>
-                <span class="color-label">Зелёный</span>
-              </div>
-              <div class="color-item">
-                <div class="color-circle" style="background: #f57c00;"></div>
-                <span class="color-label">Оранжевый</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Логотип команды -->
-          <div class="section">
-            <div class="section-title">Логотип команды</div>
-            <div class="file-upload-area" id="logoUploadArea">
-              <button class="btn-file" id="attachLogoBtn">
-                <span>📎</span> Прикрепить логотип
-              </button>
-            </div>
-          </div>
-
-          <!-- Игроки -->
-          <div class="section">
-            <div class="section-title">Игроки</div>
-            <div id="playersContainer">
-              <!-- Игрок 1 -->
-              <div class="player-card" id="player1">
-                <div class="player-header">
-                  <span class="player-name">Игрок 1</span>
-                  <button class="player-delete" disabled>
-                    <i data-feather="trash-2"></i>
-                  </button>
-                </div>
-                <div class="player-fields">
-                  <div class="field-group">
-                    <label class="field-label">Фамилия/команда</label>
-                    <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Иванов">
-                  </div>
-                  <div class="field-group">
-                    <label class="field-label">Большой номер</label>
-                    <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="10">
-                    <div class="input-hint">только цифры</div>
-                  </div>
-                  <div class="field-group">
-                    <label class="field-label">Малый номер</label>
-                    <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="7">
-                    <div class="input-hint">только цифры</div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Игрок 2 -->
-              <div class="player-card" id="player2">
-                <div class="player-header">
-                  <span class="player-name">Игрок 2</span>
-                  <button class="player-delete active">
-                    <i data-feather="trash-2"></i>
-                  </button>
-                </div>
-                <div class="player-fields">
-                  <div class="field-group">
-                    <label class="field-label">Фамилия/команда</label>
-                    <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="Петров">
-                  </div>
-                  <div class="field-group">
-                    <label class="field-label">Большой номер</label>
-                    <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="9">
-                  </div>
-                  <div class="field-group">
-                    <label class="field-label">Малый номер</label>
-                    <input class="field-input number-input" type="text" inputmode="numeric" pattern="\d*" placeholder="0-99" value="">
-                  </div>
-                </div>
-              </div>
-            </div>
+            // ===== ЭЛЕМЕНТЫ =====
+            const overlay = document.getElementById('drawerOverlay');
+            const drawer = document.getElementById('drawerPanel');
+            const openBtn = document.getElementById('openDrawerBtn');
+            const closeBtn = document.getElementById('closeDrawerBtn');
+            const playersContainer = document.getElementById('playersContainer');
+            const playerCounter = document.getElementById('playerCounter');
+            const totalPriceValue = document.getElementById('totalPriceValue');
+            const addPlayerBtn = document.getElementById('addPlayerBtn');
             
-            <!-- Счётчик игроков -->
-            <div class="player-counter" id="playerCounter">
-              Кол-во игроков: 2
-            </div>
-            
-            <!-- ===== КНОПКА "+ ДОБАВИТЬ ИГРОКА" - ПРОСТО ПЛЮСИК И НАДПИСЬ ===== -->
-            <div class="add-player-section">
-              <button class="btn-add-player" id="addPlayerBtn">
-                <i data-feather="plus-circle"></i> Добавить игрока
-              </button>
-            </div>
-            
-            <!-- Итоговая цена - ЧЕРНЫЙ ЦВЕТ -->
-            <div class="total-price" id="totalPrice">
-              <span>Итого:</span> 2 900 ₽
-            </div>
-            
-            <!-- Кнопка в корзину - ЧЕРНАЯ, УМЕНЬШЕН ТЕКСТ -->
-            <button class="btn-cart" id="addToCartBtn">
-              Добавить в корзину
-            </button>
-            
-            <!-- Дисклеймер -->
-            <div class="disclaimer">
-              * Нажимая «Добавить в корзину», вы подтверждаете, что товары с нанесением будут добавлены в корзину с указанными параметрами.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+            // ===== НОВЫЕ ЦЕНЫ =====
+            const PRICES = {
+                bigNumber: 190,
+                smallNumber: 150,
+                surname: 290,
+                teamLogo: 320,
+                sponsorLogo: 590
+            };
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Инициализация Feather Icons
-      feather.replace();
-
-      // ===== ЭЛЕМЕНТЫ =====
-      const overlay = document.getElementById('drawerOverlay');
-      const drawer = document.getElementById('drawerPanel');
-      const openBtn = document.getElementById('openDrawerBtn');
-      const closeBtn = document.getElementById('closeDrawerBtn');
-      const playersContainer = document.getElementById('playersContainer');
-      const playerCounter = document.getElementById('playerCounter');
-      const totalPriceEl = document.getElementById('totalPrice');
-      const addPlayerBtn = document.getElementById('addPlayerBtn');
-      
-      // ===== ОТКРЫТИЕ/ЗАКРЫТИЕ =====
-      function openDrawer() {
-        overlay.classList.add('active');
-        drawer.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      function closeDrawer() {
-        overlay.classList.remove('active');
-        drawer.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-      
-      openBtn.addEventListener('click', openDrawer);
-      closeBtn.addEventListener('click', closeDrawer);
-      overlay.addEventListener('click', closeDrawer);
-      
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && drawer.classList.contains('open')) {
-          closeDrawer();
-        }
-      });
-
-      // ===== ПЕРЕКЛЮЧЕНИЕ ЦВЕТОВ =====
-      const colorCircles = document.querySelectorAll('.color-circle');
-      colorCircles.forEach(circle => {
-        circle.addEventListener('click', function(e) {
-          const parent = this.closest('.color-palette');
-          if (parent) {
-            parent.querySelectorAll('.color-circle').forEach(c => c.classList.remove('selected'));
-            this.classList.add('selected');
-          }
-          updateTotalPrice();
-        });
-      });
-
-      // ===== ЗАГРУЗКА ЛОГОТИПА =====
-      const attachLogoBtn = document.getElementById('attachLogoBtn');
-      const logoUploadArea = document.getElementById('logoUploadArea');
-      
-      if (attachLogoBtn) {
-        attachLogoBtn.addEventListener('click', function() {
-          logoUploadArea.innerHTML = `
-            <div class="file-attached">
-              <span style="font-size: 18px;">📎</span>
-              <span class="file-name">team_logo_arsenal.svg</span>
-              <button class="file-remove">✕</button>
-            </div>
-          `;
-          
-          const fileRemove = document.querySelector('.file-remove');
-          if (fileRemove) {
-            fileRemove.addEventListener('click', function() {
-              logoUploadArea.innerHTML = `<button class="btn-file" id="attachLogoBtn"><span>📎</span> Прикрепить логотип</button>`;
-              document.getElementById('attachLogoBtn').addEventListener('click', arguments.callee);
-              updateTotalPrice();
+            // ===== ОТКРЫТИЕ/ЗАКРЫТИЕ =====
+            function openDrawer() {
+                overlay.classList.add('active');
+                drawer.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeDrawer() {
+                overlay.classList.remove('active');
+                drawer.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            
+            openBtn.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', closeDrawer);
+            
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && drawer.classList.contains('open')) {
+                    closeDrawer();
+                }
             });
-          }
-          updateTotalPrice();
-        });
-      }
 
-      // ===== ВАЛИДАЦИЯ ЦИФР =====
-      function setupNumberInputs() {
-        const numberInputs = document.querySelectorAll('.number-input');
-        numberInputs.forEach(input => {
-          input.removeEventListener('input', handleNumberInput);
-          input.addEventListener('input', handleNumberInput);
+            // ===== ПЕРЕКЛЮЧЕНИЕ ТОВАРОВ =====
+            const cartItems = document.querySelectorAll('.cart-item');
+            cartItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    cartItems.forEach(i => i.classList.remove('selected'));
+                    this.classList.add('selected');
+                    updateTotalPrice();
+                });
+            });
+
+            // ===== ПЕРЕКЛЮЧЕНИЕ ЦВЕТОВ =====
+            const colorCircles = document.querySelectorAll('.color-circle');
+            colorCircles.forEach(circle => {
+                circle.addEventListener('click', function(e) {
+                    const parent = this.closest('.color-palette');
+                    if (parent) {
+                        parent.querySelectorAll('.color-circle').forEach(c => c.classList.remove('selected'));
+                        this.classList.add('selected');
+                    }
+                    updateTotalPrice();
+                });
+            });
+
+            // ===== ЗАГРУЗКА ЛОГОТИПА КОМАНДЫ =====
+            const attachLogoBtn = document.getElementById('attachLogoBtn');
+            const logoUploadArea = document.getElementById('logoUploadArea');
+            
+            if (attachLogoBtn) {
+                attachLogoBtn.addEventListener('click', function() {
+                    logoUploadArea.innerHTML = `
+                        <div class="file-attached">
+                            <span style="font-size: 18px;">📎</span>
+                            <span class="file-name">team_logo.svg</span>
+                            <button class="file-remove" data-logo="team">✕</button>
+                        </div>
+                    `;
+                    
+                    const fileRemove = document.querySelector('.file-remove[data-logo="team"]');
+                    if (fileRemove) {
+                        fileRemove.addEventListener('click', function() {
+                            logoUploadArea.innerHTML = `<button class="btn-file" id="attachLogoBtn"><span>📎</span> Прикрепить логотип</button>`;
+                            document.getElementById('attachLogoBtn').addEventListener('click', arguments.callee);
+                            updateTotalPrice();
+                        });
+                    }
+                    updateTotalPrice();
+                });
+            }
+
+            // ===== ЗАГРУЗКА СПОНСОРСКОГО ЛОГОТИПА =====
+            const attachSponsorLogoBtn = document.getElementById('attachSponsorLogoBtn');
+            const sponsorLogoUploadArea = document.getElementById('sponsorLogoUploadArea');
+            
+            if (attachSponsorLogoBtn) {
+                attachSponsorLogoBtn.addEventListener('click', function() {
+                    sponsorLogoUploadArea.innerHTML = `
+                        <div class="file-attached">
+                            <span style="font-size: 18px;">📎</span>
+                            <span class="file-name">sponsor_logo.svg</span>
+                            <button class="file-remove" data-logo="sponsor">✕</button>
+                        </div>
+                    `;
+                    
+                    const fileRemove = document.querySelector('.file-remove[data-logo="sponsor"]');
+                    if (fileRemove) {
+                        fileRemove.addEventListener('click', function() {
+                            sponsorLogoUploadArea.innerHTML = `<button class="btn-file" id="attachSponsorLogoBtn"><span>📎</span> Прикрепить логотип спонсора</button>`;
+                            document.getElementById('attachSponsorLogoBtn').addEventListener('click', arguments.callee);
+                            updateTotalPrice();
+                        });
+                    }
+                    updateTotalPrice();
+                });
+            }
+
+            // ===== ВАЛИДАЦИЯ ЦИФР =====
+            function setupNumberInputs() {
+                const numberInputs = document.querySelectorAll('.number-input');
+                numberInputs.forEach(input => {
+                    input.removeEventListener('input', handleNumberInput);
+                    input.addEventListener('input', handleNumberInput);
+                });
+            }
+            
+            function handleNumberInput(e) {
+                this.value = this.value.replace(/[^\d]/g, '').slice(0, 2);
+                updateTotalPrice();
+            }
+            
+            // ===== УДАЛЕНИЕ ИГРОКА =====
+            function setupDeleteButtons() {
+                const deleteButtons = document.querySelectorAll('.player-delete');
+                deleteButtons.forEach((btn, index) => {
+                    btn.removeEventListener('click', handleDeletePlayer);
+                    btn.addEventListener('click', handleDeletePlayer);
+                });
+            }
+            
+            function handleDeletePlayer(e) {
+                if (!this.classList.contains('active')) return;
+                
+                const playerCard = this.closest('.player-card');
+                if (playerCard) {
+                    playerCard.remove();
+                    updatePlayerNumbers();
+                    updatePlayerCounter();
+                    updateDeleteButtonsState();
+                    updateTotalPrice();
+                }
+            }
+            
+            function updatePlayerNumbers() {
+                const players = document.querySelectorAll('.player-card');
+                players.forEach((player, index) => {
+                    const nameEl = player.querySelector('.player-name');
+                    if (nameEl) {
+                        nameEl.textContent = `Игрок ${index + 1}`;
+                    }
+                });
+            }
+            
+            function updatePlayerCounter() {
+                const players = document.querySelectorAll('.player-card');
+                playerCounter.textContent = `Кол-во игроков: ${players.length}`;
+            }
+            
+            function updateDeleteButtonsState() {
+                const players = document.querySelectorAll('.player-card');
+                const deleteButtons = document.querySelectorAll('.player-delete');
+                
+                deleteButtons.forEach(btn => {
+                    if (players.length <= 1) {
+                        btn.classList.remove('active');
+                        btn.disabled = true;
+                    } else {
+                        btn.classList.add('active');
+                        btn.disabled = false;
+                    }
+                });
+                
+                feather.replace();
+            }
+            
+            // ===== ДОБАВЛЕНИЕ ИГРОКА =====
+            function addNewPlayer() {
+                const players = document.querySelectorAll('.player-card');
+                const newPlayerNumber = players.length + 1;
+                
+                const newPlayer = document.createElement('div');
+                newPlayer.className = 'player-card';
+                newPlayer.innerHTML = `
+                    <div class="player-header">
+                        <span class="player-name">Игрок ${newPlayerNumber}</span>
+                        <button class="player-delete active">
+                            <i data-feather="trash-2"></i>
+                        </button>
+                    </div>
+                    <div class="player-fields">
+                        <div class="field-group">
+                            <label class="field-label">Размер</label>
+                            <select class="field-select">
+                                <option value="">Выберите размер</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M" selected>M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                                <option value="XXXL">XXXL</option>
+                            </select>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label">Фамилия/команда (290 ₽)</label>
+                            <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="">
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label">Большой номер (190 ₽)</label>
+                            <input class="field-input number-input" type="text" inputmode="numeric" pattern="\\d*" placeholder="0-99" value="">
+                            <div class="input-hint">только цифры</div>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label">Малый номер (150 ₽)</label>
+                            <input class="field-input number-input" type="text" inputmode="numeric" pattern="\\d*" placeholder="0-99" value="">
+                            <div class="input-hint">только цифры</div>
+                        </div>
+                    </div>
+                `;
+                
+                playersContainer.appendChild(newPlayer);
+                feather.replace();
+                setupNumberInputs();
+                setupDeleteButtons();
+                updateDeleteButtonsState();
+                updatePlayerCounter();
+                updateTotalPrice();
+            }
+            
+            addPlayerBtn.addEventListener('click', addNewPlayer);
+            
+            // ===== ОБНОВЛЕНИЕ ЦЕНЫ =====
+            function updateTotalPrice() {
+                const players = document.querySelectorAll('.player-card');
+                let total = 0;
+                
+                players.forEach(player => {
+                    const surname = player.querySelector('.field-group:nth-child(2) input')?.value;
+                    const bigNumber = player.querySelector('.field-group:nth-child(3) input')?.value;
+                    const smallNumber = player.querySelector('.field-group:nth-child(4) input')?.value;
+                    
+                    if (bigNumber && bigNumber.length > 0) total += PRICES.bigNumber;
+                    if (smallNumber && smallNumber.length > 0) total += PRICES.smallNumber;
+                    if (surname && surname.length > 0) total += PRICES.surname;
+                });
+                
+                // Логотип команды
+                if (document.querySelector('.file-attached') && 
+                    document.querySelector('.file-attached .file-name')?.textContent.includes('team')) {
+                    total += PRICES.teamLogo;
+                }
+                
+                // Спонсорский логотип
+                if (document.querySelectorAll('.file-attached').length > 1 ||
+                    (document.querySelector('.file-attached') && 
+                     document.querySelector('.file-attached .file-name')?.textContent.includes('sponsor'))) {
+                    total += PRICES.sponsorLogo;
+                }
+                
+                totalPriceValue.textContent = `${total.toLocaleString()} ₽`;
+            }
+            
+            // ===== ИНИЦИАЛИЗАЦИЯ =====
+            setupNumberInputs();
+            setupDeleteButtons();
+            updateDeleteButtonsState();
+            
+            document.addEventListener('input', function(e) {
+                if (e.target.classList.contains('field-input') || 
+                    e.target.classList.contains('field-select')) {
+                    updateTotalPrice();
+                }
+            });
+            
+            // Слушатели для select
+            document.querySelectorAll('.field-select').forEach(select => {
+                select.addEventListener('change', updateTotalPrice);
+            });
         });
-      }
-      
-      function handleNumberInput(e) {
-        this.value = this.value.replace(/[^\d]/g, '').slice(0, 2);
-        updateTotalPrice();
-      }
-      
-      // ===== УДАЛЕНИЕ ИГРОКА =====
-      function setupDeleteButtons() {
-        const deleteButtons = document.querySelectorAll('.player-delete');
-        deleteButtons.forEach((btn, index) => {
-          btn.removeEventListener('click', handleDeletePlayer);
-          btn.addEventListener('click', handleDeletePlayer);
-        });
-      }
-      
-      function handleDeletePlayer(e) {
-        if (!this.classList.contains('active')) return;
-        
-        const playerCard = this.closest('.player-card');
-        if (playerCard) {
-          playerCard.remove();
-          updatePlayerNumbers();
-          updatePlayerCounter();
-          updateDeleteButtonsState();
-          updateTotalPrice();
-        }
-      }
-      
-      function updatePlayerNumbers() {
-        const players = document.querySelectorAll('.player-card');
-        players.forEach((player, index) => {
-          const nameEl = player.querySelector('.player-name');
-          if (nameEl) {
-            nameEl.textContent = `Игрок ${index + 1}`;
-          }
-        });
-      }
-      
-      function updatePlayerCounter() {
-        const players = document.querySelectorAll('.player-card');
-        playerCounter.textContent = `Кол-во игроков: ${players.length}`;
-      }
-      
-      function updateDeleteButtonsState() {
-        const players = document.querySelectorAll('.player-card');
-        const deleteButtons = document.querySelectorAll('.player-delete');
-        
-        deleteButtons.forEach(btn => {
-          if (players.length <= 1) {
-            btn.classList.remove('active');
-            btn.disabled = true;
-          } else {
-            btn.classList.add('active');
-            btn.disabled = false;
-          }
-        });
-        
-        feather.replace();
-      }
-      
-      // ===== ДОБАВЛЕНИЕ ИГРОКА =====
-      function addNewPlayer() {
-        const players = document.querySelectorAll('.player-card');
-        const newPlayerNumber = players.length + 1;
-        
-        const newPlayer = document.createElement('div');
-        newPlayer.className = 'player-card';
-        newPlayer.innerHTML = `
-          <div class="player-header">
-            <span class="player-name">Игрок ${newPlayerNumber}</span>
-            <button class="player-delete active">
-              <i data-feather="trash-2"></i>
-            </button>
-          </div>
-          <div class="player-fields">
-            <div class="field-group">
-              <label class="field-label">Фамилия/команда</label>
-              <input class="field-input" type="text" placeholder="Введите фамилию" maxlength="12" value="">
-            </div>
-            <div class="field-group">
-              <label class="field-label">Большой номер</label>
-              <input class="field-input number-input" type="text" inputmode="numeric" pattern="\\d*" placeholder="0-99" value="">
-              <div class="input-hint">только цифры</div>
-            </div>
-            <div class="field-group">
-              <label class="field-label">Малый номер</label>
-              <input class="field-input number-input" type="text" inputmode="numeric" pattern="\\d*" placeholder="0-99" value="">
-              <div class="input-hint">только цифры</div>
-            </div>
-          </div>
-        `;
-        
-        playersContainer.appendChild(newPlayer);
-        feather.replace();
-        setupNumberInputs();
-        setupDeleteButtons();
-        updateDeleteButtonsState();
-        updatePlayerCounter();
-        updateTotalPrice();
-      }
-      
-      addPlayerBtn.addEventListener('click', addNewPlayer);
-      
-      // ===== ОБНОВЛЕНИЕ ЦЕНЫ =====
-      function updateTotalPrice() {
-        const players = document.querySelectorAll('.player-card');
-        let total = 0;
-        
-        players.forEach(player => {
-          total += 400; // базовая стоимость
-          
-          const bigNumber = player.querySelector('.field-group:nth-child(2) input')?.value;
-          const smallNumber = player.querySelector('.field-group:nth-child(3) input')?.value;
-          const surname = player.querySelector('.field-group:nth-child(1) input')?.value;
-          
-          if (bigNumber && bigNumber.length > 0) total += 500;
-          if (smallNumber && smallNumber.length > 0) total += 300;
-          if (surname && surname.length > 0) total += 400;
-        });
-        
-        if (document.querySelector('.file-attached')) {
-          total += 800;
-        }
-        
-        totalPriceEl.innerHTML = `<span>Итого:</span> ${total.toLocaleString()} ₽`;
-      }
-      
-      // ===== ИНИЦИАЛИЗАЦИЯ =====
-      setupNumberInputs();
-      setupDeleteButtons();
-      updateDeleteButtonsState();
-      
-      document.addEventListener('input', function(e) {
-        if (e.target.classList.contains('field-input')) {
-          updateTotalPrice();
-        }
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
