@@ -91,44 +91,7 @@
                 <!-- Контент -->
                 <div class="drawer-scrollable">
                     
-                    <!-- КНОПКА "РАСПОЛОЖЕНИЕ НАНЕСЕНИЯ" -->
-                    <div class="section">
-                        <button class="btn-location" id="showLocationBtn">
-                            <i data-feather="info"></i> Расположение нанесения
-                        </button>
-                    </div>
-
-                    <!-- ===== БЛОК ТОВАРОВ В КОРЗИНЕ (ГОРИЗОНТАЛЬНЫЙ СКРОЛЛ) ===== -->
-                    <div class="section">
-                        <div class="section-title">Товары для нанесения</div>
-                        <div class="cart-items-horizontal" id="cartItemsHorizontal">
-                            <!-- Товар 1 (120050) -->
-                            <div class="cart-item-horizontal selected" data-art="120050">
-                                <div class="cart-item-image-small">
-                                    <img src="https://private-user-images.githubusercontent.com/215157183/552179081-6bc1c1b5-1cd4-4774-aaf8-90c6dcf29afd.jpg" alt="Футболка">
-                                </div>
-                                <div class="cart-item-info-small">
-                                    <div class="cart-item-name-small">Футболка Classic III</div>
-                                    <div class="cart-item-art-small">Арт. 120050</div>
-                                </div>
-                                <div class="cart-item-check-small">✓</div>
-                            </div>
-                            
-                            <!-- Товар 2 (120222) -->
-                            <div class="cart-item-horizontal" data-art="120222">
-                                <div class="cart-item-image-small">
-                                    <img src="https://private-user-images.githubusercontent.com/215157183/552179084-930814a9-57c9-4424-ae72-97300e13c0f3.jpg" alt="Шорты">
-                                </div>
-                                <div class="cart-item-info-small">
-                                    <div class="cart-item-name-small">Шорты Classic III</div>
-                                    <div class="cart-item-art-small">Арт. 120222</div>
-                                </div>
-                                <div class="cart-item-check-small">✓</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ИНФОРМАЦИОННЫЙ БЛОК -->
+                    <!-- 1. ИНФОРМАЦИОННЫЙ БЛОК -->
                     <div class="info-block">
                         <p>В этом разделе вы можете добавить нанесение на экипировку для игрока или команды.</p>
                         <p>Доступные возможности:</p>
@@ -143,7 +106,48 @@
                         <p>Больше вариантов персонализации вы найдёте в разделе <a href="#">«Нанесение и вышивка»</a>.</p>
                     </div>
 
-                    <!-- Игроки -->
+                    <!-- 2. КНОПКА "РАСПОЛОЖЕНИЕ НАНЕСЕНИЯ" -->
+                    <div class="section">
+                        <button class="btn-location" id="showLocationBtn">
+                            <i data-feather="info"></i> Расположение нанесения
+                        </button>
+                    </div>
+
+                    <!-- 3. БЛОК ТОВАРОВ ДЛЯ НАНЕСЕНИЯ -->
+                    <div class="section">
+                        <div class="section-title">Товары для нанесения</div>
+                        <div class="cart-items-horizontal" id="cartItemsHorizontal">
+                            <!-- Товар 1 (120050) -->
+                            <div class="cart-item-horizontal selected" data-art="120050">
+                                <div class="cart-item-content">
+                                    <div class="cart-item-image-small">
+                                        <img src="https://private-user-images.githubusercontent.com/215157183/552179081-6bc1c1b5-1cd4-4774-aaf8-90c6dcf29afd.jpg" alt="Футболка">
+                                    </div>
+                                    <div class="cart-item-info-small">
+                                        <div class="cart-item-name-small">Футболка Classic III</div>
+                                        <div class="cart-item-art-small">Арт. 120050</div>
+                                    </div>
+                                </div>
+                                <div class="cart-item-check-small">✓</div>
+                            </div>
+                            
+                            <!-- Товар 2 (120222) -->
+                            <div class="cart-item-horizontal" data-art="120222">
+                                <div class="cart-item-content">
+                                    <div class="cart-item-image-small">
+                                        <img src="https://private-user-images.githubusercontent.com/215157183/552179084-930814a9-57c9-4424-ae72-97300e13c0f3.jpg" alt="Шорты">
+                                    </div>
+                                    <div class="cart-item-info-small">
+                                        <div class="cart-item-name-small">Шорты Classic III</div>
+                                        <div class="cart-item-art-small">Арт. 120222</div>
+                                    </div>
+                                </div>
+                                <div class="cart-item-check-small">✓</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. ИГРОКИ -->
                     <div class="section">
                         <div class="section-title">Игроки</div>
                         <div id="playersContainer"></div>
@@ -315,7 +319,7 @@
                 }
             });
 
-            // ===== ПЕРЕКЛЮЧЕНИЕ ТОВАРОВ (ГОРИЗОНТАЛЬНЫЕ) =====
+            // ===== ПЕРЕКЛЮЧЕНИЕ ТОВАРОВ =====
             const cartItemsHorizontal = document.querySelectorAll('.cart-item-horizontal');
             cartItemsHorizontal.forEach(item => {
                 item.addEventListener('click', function() {
@@ -426,7 +430,7 @@
                         <div class="checkbox-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" class="logo-checkbox sponsor-logo" data-player="${playerNumber}" ${player.sponsorLogo ? 'checked' : ''}>
-                                <span>Большой спонсорский логотип (590 ₽)</span>
+                                <span>Большой логотип (590 ₽)</span>
                             </label>
                         </div>
                     </div>
@@ -625,7 +629,7 @@
                         <div class="checkbox-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" class="logo-checkbox sponsor-logo">
-                                <span>Большой спонсорский логотип (590 ₽)</span>
+                                <span>Большой логотип (590 ₽)</span>
                             </label>
                         </div>
                     </div>
@@ -772,7 +776,7 @@
                         }
                         if (player.sponsorLogo) {
                             html += `<div class="confirm-player-detail-row">
-                                <span class="detail-label">Спонсорский логотип:</span>
+                                <span class="detail-label">Большой логотип:</span>
                                 <span class="detail-value">✓</span>
                                 <span class="detail-price">+590 ₽</span>
                             </div>`;
@@ -810,17 +814,15 @@
             
             continueShoppingBtn.addEventListener('click', function() {
                 confirmModalOverlay.classList.remove('active');
-                closeDrawer(); // Закрываем панель нанесения
+                closeDrawer();
             });
             
             goToCartBtn.addEventListener('click', function() {
-                // Для прототипа просто закрываем окна
                 confirmModalOverlay.classList.remove('active');
                 closeDrawer();
                 alert('Переход в корзину (в реальном проекте будет редирект)');
             });
             
-            // Закрытие по клику на оверлей
             confirmModalOverlay.addEventListener('click', function(e) {
                 if (e.target === confirmModalOverlay) {
                     confirmModalOverlay.classList.remove('active');
@@ -828,7 +830,6 @@
             });
             
             // ===== ИНИЦИАЛИЗАЦИЯ =====
-            // Добавляем первого игрока по умолчанию
             addNewPlayer(true);
             
             setupNumberInputs();
@@ -843,7 +844,6 @@
                 }
             });
             
-            // Слушатели для select
             document.querySelectorAll('.field-select').forEach(select => {
                 select.addEventListener('change', function() {
                     saveCurrentState();
@@ -851,7 +851,6 @@
                 });
             });
             
-            // Обработчик для главной кнопки "Добавить в корзину"
             document.getElementById('addToCartMainBtn').addEventListener('click', function() {
                 alert('Товар добавлен в корзину. Теперь вы можете добавить нанесение.');
             });
