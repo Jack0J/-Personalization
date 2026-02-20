@@ -91,20 +91,6 @@
                 <!-- Контент -->
                 <div class="drawer-scrollable">
                     
-                    <!-- ИНФОРМАЦИОННЫЙ БЛОК (КОМПАКТНЫЙ) -->
-                    <div class="info-block-compact">
-                        <p>В этом разделе вы можете добавить нанесение на экипировку для игрока или команды.</p>
-                        <div class="services-compact">
-                            <div class="service-item"><span class="service-number">1</span> большой номер — 190 ₽</div>
-                            <div class="service-item"><span class="service-number">2</span> малый номер — 150 ₽</div>
-                            <div class="service-item"><span class="service-number">3</span> логотип команды — 320 ₽</div>
-                            <div class="service-item"><span class="service-number">4</span> логотип спонсорский большой — 590 ₽</div>
-                            <div class="service-item"><span class="service-number">5</span> фамилия или название команды — 290 ₽</div>
-                        </div>
-                        <p class="info-note-compact">Обратите внимание: товары с нанесением не подлежат возврату и требуют предоплаты.</p>
-                        <p class="info-link-compact">Больше вариантов персонализации в разделе <a href="#">«Нанесение и вышивка»</a>.</p>
-                    </div>
-
                     <!-- КНОПКА "РАСПОЛОЖЕНИЕ НАНЕСЕНИЯ" -->
                     <div class="section">
                         <button class="btn-location" id="showLocationBtn">
@@ -142,26 +128,19 @@
                         </div>
                     </div>
 
-                    <!-- Цвет нанесения (удален из общего блока) -->
-
-                    <!-- Логотип команды -->
-                    <div class="section">
-                        <div class="section-title">Логотип команды (320 ₽)</div>
-                        <div class="file-upload-area" id="logoUploadArea">
-                            <button class="btn-file" id="attachLogoBtn">
-                                <span>📎</span> Прикрепить логотип
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Большой спонсорский логотип -->
-                    <div class="section">
-                        <div class="section-title">Большой спонсорский логотип (590 ₽)</div>
-                        <div class="file-upload-area" id="sponsorLogoUploadArea">
-                            <button class="btn-file" id="attachSponsorLogoBtn">
-                                <span>📎</span> Прикрепить логотип спонсора
-                            </button>
-                        </div>
+                    <!-- ИНФОРМАЦИОННЫЙ БЛОК -->
+                    <div class="info-block">
+                        <p>В этом разделе вы можете добавить нанесение на экипировку для игрока или команды.</p>
+                        <p>Доступные возможности:</p>
+                        <ul class="services-list">
+                            <li><span class="service-number">1</span> большой номер — 190 ₽</li>
+                            <li><span class="service-number">2</span> малый номер — 150 ₽</li>
+                            <li><span class="service-number">3</span> логотип команды — 320 ₽</li>
+                            <li><span class="service-number">4</span> логотип спонсорский большой — 590 ₽</li>
+                            <li><span class="service-number">5</span> фамилия или название команды — 290 ₽</li>
+                        </ul>
+                        <p class="info-note">Обратите внимание: товары с нанесением не подлежат возврату и требуют предоплаты.</p>
+                        <p>Больше вариантов персонализации вы найдёте в разделе <a href="#">«Нанесение и вышивка»</a>.</p>
                     </div>
 
                     <!-- Игроки -->
@@ -363,31 +342,6 @@
                     });
                 }
                 
-                // Загружаем состояние логотипов
-                if (state.teamLogo) {
-                    document.getElementById('logoUploadArea').innerHTML = `
-                        <div class="file-attached">
-                            <span style="font-size: 18px;">📎</span>
-                            <span class="file-name">team_logo.svg</span>
-                            <button class="file-remove" data-logo="team">✕</button>
-                        </div>
-                    `;
-                } else {
-                    document.getElementById('logoUploadArea').innerHTML = `<button class="btn-file" id="attachLogoBtn"><span>📎</span> Прикрепить логотип</button>`;
-                }
-                
-                if (state.sponsorLogo) {
-                    document.getElementById('sponsorLogoUploadArea').innerHTML = `
-                        <div class="file-attached">
-                            <span style="font-size: 18px;">📎</span>
-                            <span class="file-name">sponsor_logo.svg</span>
-                            <button class="file-remove" data-logo="sponsor">✕</button>
-                        </div>
-                    `;
-                } else {
-                    document.getElementById('sponsorLogoUploadArea').innerHTML = `<button class="btn-file" id="attachSponsorLogoBtn"><span>📎</span> Прикрепить логотип спонсора</button>`;
-                }
-                
                 // Обновляем счетчик
                 updatePlayerCounter();
                 
@@ -395,7 +349,6 @@
                 setupNumberInputs();
                 setupDeleteButtons();
                 updateDeleteButtonsState();
-                setupFileUploads();
                 
                 // Обновляем общую цену
                 updateTotalPrice();
@@ -414,7 +367,9 @@
                             <i data-feather="trash-2"></i>
                         </button>
                     </div>
-                    <div class="player-fields">
+                    
+                    <!-- Первая строка: Размер и Цвет нанесения -->
+                    <div class="player-row">
                         <div class="field-group">
                             <label class="field-label">Размер</label>
                             <select class="field-select" data-player="${playerNumber}">
@@ -440,6 +395,10 @@
                                 <option value="orange" ${player.color === 'orange' ? 'selected' : ''}>Оранжевый</option>
                             </select>
                         </div>
+                    </div>
+                    
+                    <!-- Вторая строка: Фамилия, Большой номер, Малый номер -->
+                    <div class="player-row">
                         <div class="field-group">
                             <label class="field-label">Фамилия/команда (290 ₽)</label>
                             <input class="field-input ${isShorts ? 'disabled-field' : ''}" type="text" placeholder="Введите фамилию" maxlength="12" value="${player.surname || ''}" ${isShorts ? 'disabled' : ''}>
@@ -455,9 +414,43 @@
                             <div class="input-hint">только цифры</div>
                         </div>
                     </div>
+                    
+                    <!-- Третья строка: Чекбоксы для логотипов -->
+                    <div class="player-row logos-row">
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="logo-checkbox team-logo" data-player="${playerNumber}" ${player.teamLogo ? 'checked' : ''}>
+                                <span>Логотип команды (320 ₽)</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="logo-checkbox sponsor-logo" data-player="${playerNumber}" ${player.sponsorLogo ? 'checked' : ''}>
+                                <span>Большой спонсорский логотип (590 ₽)</span>
+                            </label>
+                        </div>
+                    </div>
                 `;
                 
                 playersContainer.appendChild(newPlayer);
+                
+                // Добавляем обработчики для чекбоксов
+                const teamLogoCheckbox = newPlayer.querySelector('.team-logo');
+                const sponsorLogoCheckbox = newPlayer.querySelector('.sponsor-logo');
+                
+                if (teamLogoCheckbox) {
+                    teamLogoCheckbox.addEventListener('change', function() {
+                        saveCurrentState();
+                        updateTotalPrice();
+                    });
+                }
+                
+                if (sponsorLogoCheckbox) {
+                    sponsorLogoCheckbox.addEventListener('change', function() {
+                        saveCurrentState();
+                        updateTotalPrice();
+                    });
+                }
             }
 
             // ===== СОХРАНЕНИЕ СОСТОЯНИЯ ТЕКУЩЕГО АРТИКУЛА =====
@@ -466,80 +459,26 @@
                 const players = [];
                 
                 document.querySelectorAll('.player-card').forEach(card => {
-                    const sizeSelect = card.querySelector('.field-select:not(.color-select)');
+                    const sizeSelect = card.querySelector('.player-row:first-child .field-select:not(.color-select)');
                     const colorSelect = card.querySelector('.color-select');
-                    const surnameInput = card.querySelector('.field-group:nth-child(3) input');
-                    const bigNumberInput = card.querySelector('.field-group:nth-child(4) input');
-                    const smallNumberInput = card.querySelector('.field-group:nth-child(5) input');
+                    const surnameInput = card.querySelector('.player-row:nth-child(3) .field-group:nth-child(1) input');
+                    const bigNumberInput = card.querySelector('.player-row:nth-child(3) .field-group:nth-child(2) input');
+                    const smallNumberInput = card.querySelector('.player-row:nth-child(3) .field-group:nth-child(3) input');
+                    const teamLogoCheckbox = card.querySelector('.team-logo');
+                    const sponsorLogoCheckbox = card.querySelector('.sponsor-logo');
                     
                     players.push({
                         size: sizeSelect ? sizeSelect.value : '',
                         color: colorSelect ? colorSelect.value : 'white',
                         surname: surnameInput ? surnameInput.value : '',
                         bigNumber: bigNumberInput ? bigNumberInput.value : '',
-                        smallNumber: smallNumberInput ? smallNumberInput.value : ''
+                        smallNumber: smallNumberInput ? smallNumberInput.value : '',
+                        teamLogo: teamLogoCheckbox ? teamLogoCheckbox.checked : false,
+                        sponsorLogo: sponsorLogoCheckbox ? sponsorLogoCheckbox.checked : false
                     });
                 });
                 
                 state.players = players;
-                state.teamLogo = document.querySelector('#logoUploadArea .file-attached') !== null;
-                state.sponsorLogo = document.querySelector('#sponsorLogoUploadArea .file-attached') !== null;
-            }
-
-            // ===== НАСТРОЙКА ЗАГРУЗКИ ФАЙЛОВ =====
-            function setupFileUploads() {
-                const attachLogoBtn = document.getElementById('attachLogoBtn');
-                const logoUploadArea = document.getElementById('logoUploadArea');
-                const attachSponsorLogoBtn = document.getElementById('attachSponsorLogoBtn');
-                const sponsorLogoUploadArea = document.getElementById('sponsorLogoUploadArea');
-                
-                if (attachLogoBtn) {
-                    attachLogoBtn.addEventListener('click', function() {
-                        logoUploadArea.innerHTML = `
-                            <div class="file-attached">
-                                <span style="font-size: 18px;">📎</span>
-                                <span class="file-name">team_logo.svg</span>
-                                <button class="file-remove" data-logo="team">✕</button>
-                            </div>
-                        `;
-                        
-                        const fileRemove = document.querySelector('.file-remove[data-logo="team"]');
-                        if (fileRemove) {
-                            fileRemove.addEventListener('click', function() {
-                                logoUploadArea.innerHTML = `<button class="btn-file" id="attachLogoBtn"><span>📎</span> Прикрепить логотип</button>`;
-                                document.getElementById('attachLogoBtn').addEventListener('click', arguments.callee);
-                                saveCurrentState();
-                                updateTotalPrice();
-                            });
-                        }
-                        saveCurrentState();
-                        updateTotalPrice();
-                    });
-                }
-
-                if (attachSponsorLogoBtn) {
-                    attachSponsorLogoBtn.addEventListener('click', function() {
-                        sponsorLogoUploadArea.innerHTML = `
-                            <div class="file-attached">
-                                <span style="font-size: 18px;">📎</span>
-                                <span class="file-name">sponsor_logo.svg</span>
-                                <button class="file-remove" data-logo="sponsor">✕</button>
-                            </div>
-                        `;
-                        
-                        const fileRemove = document.querySelector('.file-remove[data-logo="sponsor"]');
-                        if (fileRemove) {
-                            fileRemove.addEventListener('click', function() {
-                                sponsorLogoUploadArea.innerHTML = `<button class="btn-file" id="attachSponsorLogoBtn"><span>📎</span> Прикрепить логотип спонсора</button>`;
-                                document.getElementById('attachSponsorLogoBtn').addEventListener('click', arguments.callee);
-                                saveCurrentState();
-                                updateTotalPrice();
-                            });
-                        }
-                        saveCurrentState();
-                        updateTotalPrice();
-                    });
-                }
             }
 
             // ===== ВАЛИДАЦИЯ ЦИФР =====
@@ -627,7 +566,9 @@
                             <i data-feather="trash-2"></i>
                         </button>
                     </div>
-                    <div class="player-fields">
+                    
+                    <!-- Первая строка: Размер и Цвет нанесения -->
+                    <div class="player-row">
                         <div class="field-group">
                             <label class="field-label">Размер</label>
                             <select class="field-select">
@@ -653,6 +594,10 @@
                                 <option value="orange">Оранжевый</option>
                             </select>
                         </div>
+                    </div>
+                    
+                    <!-- Вторая строка: Фамилия, Большой номер, Малый номер -->
+                    <div class="player-row">
                         <div class="field-group">
                             <label class="field-label">Фамилия/команда (290 ₽)</label>
                             <input class="field-input ${isShorts ? 'disabled-field' : ''}" type="text" placeholder="Введите фамилию" maxlength="12" value="" ${isShorts ? 'disabled' : ''}>
@@ -668,10 +613,45 @@
                             <div class="input-hint">только цифры</div>
                         </div>
                     </div>
+                    
+                    <!-- Третья строка: Чекбоксы для логотипов -->
+                    <div class="player-row logos-row">
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="logo-checkbox team-logo">
+                                <span>Логотип команды (320 ₽)</span>
+                            </label>
+                        </div>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="logo-checkbox sponsor-logo">
+                                <span>Большой спонсорский логотип (590 ₽)</span>
+                            </label>
+                        </div>
+                    </div>
                 `;
                 
                 playersContainer.appendChild(newPlayer);
                 feather.replace();
+                
+                // Добавляем обработчики для чекбоксов
+                const teamLogoCheckbox = newPlayer.querySelector('.team-logo');
+                const sponsorLogoCheckbox = newPlayer.querySelector('.sponsor-logo');
+                
+                if (teamLogoCheckbox) {
+                    teamLogoCheckbox.addEventListener('change', function() {
+                        saveCurrentState();
+                        updateTotalPrice();
+                    });
+                }
+                
+                if (sponsorLogoCheckbox) {
+                    sponsorLogoCheckbox.addEventListener('change', function() {
+                        saveCurrentState();
+                        updateTotalPrice();
+                    });
+                }
+                
                 setupNumberInputs();
                 setupDeleteButtons();
                 updateDeleteButtonsState();
@@ -701,10 +681,9 @@
                         if (player.bigNumber && player.bigNumber.length > 0) total += PRICES.bigNumber;
                         if (player.smallNumber && player.smallNumber.length > 0) total += PRICES.smallNumber;
                         if (player.surname && player.surname.length > 0) total += PRICES.surname;
+                        if (player.teamLogo) total += PRICES.teamLogo;
+                        if (player.sponsorLogo) total += PRICES.sponsorLogo;
                     });
-                    
-                    if (state.teamLogo) total += PRICES.teamLogo;
-                    if (state.sponsorLogo) total += PRICES.sponsorLogo;
                 }
                 
                 totalPriceValue.textContent = `${total.toLocaleString()} ₽`;
@@ -724,8 +703,9 @@
                     const hasAnyServices = state.players.some(p => 
                         (p.bigNumber && p.bigNumber.length > 0) || 
                         (p.smallNumber && p.smallNumber.length > 0) || 
-                        (p.surname && p.surname.length > 0)
-                    ) || state.teamLogo || state.sponsorLogo;
+                        (p.surname && p.surname.length > 0) ||
+                        p.teamLogo || p.sponsorLogo
+                    );
                     
                     if (!hasAnyServices) continue;
                     
@@ -747,7 +727,8 @@
                     state.players.forEach((player, index) => {
                         const hasPlayerServices = (player.bigNumber && player.bigNumber.length > 0) || 
                                                   (player.smallNumber && player.smallNumber.length > 0) || 
-                                                  (player.surname && player.surname.length > 0);
+                                                  (player.surname && player.surname.length > 0) ||
+                                                  player.teamLogo || player.sponsorLogo;
                         
                         if (!hasPlayerServices) return;
                         
@@ -781,38 +762,27 @@
                             </div>`;
                             playerTotal += PRICES.smallNumber;
                         }
+                        if (player.teamLogo) {
+                            html += `<div class="confirm-player-detail-row">
+                                <span class="detail-label">Логотип команды:</span>
+                                <span class="detail-value">✓</span>
+                                <span class="detail-price">+320 ₽</span>
+                            </div>`;
+                            playerTotal += PRICES.teamLogo;
+                        }
+                        if (player.sponsorLogo) {
+                            html += `<div class="confirm-player-detail-row">
+                                <span class="detail-label">Спонсорский логотип:</span>
+                                <span class="detail-value">✓</span>
+                                <span class="detail-price">+590 ₽</span>
+                            </div>`;
+                            playerTotal += PRICES.sponsorLogo;
+                        }
                         
                         html += `<div class="confirm-player-total">Итого по игроку: ${playerTotal} ₽</div>`;
                         html += `</div></div>`;
                         total += playerTotal;
                     });
-                    
-                    // Логотипы
-                    if (state.teamLogo) {
-                        html += `<div class="confirm-player-item" style="background: #f3e5f5;">`;
-                        html += `<div class="confirm-player-details">`;
-                        html += `<div class="confirm-player-detail-row">
-                            <span class="detail-label">Логотип команды:</span>
-                            <span class="detail-value">team_logo.svg</span>
-                            <span class="detail-price">+320 ₽</span>
-                        </div>`;
-                        html += `<div class="confirm-player-total">Итого: 320 ₽</div>`;
-                        html += `</div></div>`;
-                        total += PRICES.teamLogo;
-                    }
-                    
-                    if (state.sponsorLogo) {
-                        html += `<div class="confirm-player-item" style="background: #f3e5f5;">`;
-                        html += `<div class="confirm-player-details">`;
-                        html += `<div class="confirm-player-detail-row">
-                            <span class="detail-label">Спонсорский логотип:</span>
-                            <span class="detail-value">sponsor_logo.svg</span>
-                            <span class="detail-price">+590 ₽</span>
-                        </div>`;
-                        html += `<div class="confirm-player-total">Итого: 590 ₽</div>`;
-                        html += `</div></div>`;
-                        total += PRICES.sponsorLogo;
-                    }
                     
                     html += `</div></div>`;
                     html += `<div class="confirm-item-divider"></div>`;
@@ -864,7 +834,6 @@
             setupNumberInputs();
             setupDeleteButtons();
             updateDeleteButtonsState();
-            setupFileUploads();
             
             document.addEventListener('input', function(e) {
                 if (e.target.classList.contains('field-input') || 
